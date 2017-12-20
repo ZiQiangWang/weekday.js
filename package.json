@@ -1,0 +1,28 @@
+{
+  "name": "weekday-tools",
+  "version": "0.0.1",
+  "description": "Tools for weekday,get weekday list or number,check weekday",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZiQiangWang/weekday-tools.git"
+  },
+  "keywords": [
+    "weekday",
+    "tools",
+    "range",
+    "ago"
+  ],
+  "author": "ZiQiangWang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZiQiangWang/weekday-tools/issues"
+  },
+  "homepage": "https://github.com/ZiQiangWang/weekday-tools#readme",
+  "devDependencies": {
+    "jest": "^22.0.3"
+  }
+}
