@@ -1,5 +1,5 @@
-const Weekday = require('../src/index');
-const weekday = new Weekday();
+const weekday = require('../src/index');
+// const weekday = new Weekday();
 
 describe('Test case of weekday tools', () => {
     describe('1.Weekday check', () => {
@@ -137,6 +137,11 @@ describe('Test case of weekday tools', () => {
                 "2017-12-07",
             ]
             expect(weekday.recent(5, "yyyy-MM-dd", origin)).toEqual(result);
+        });
+    });
+    describe('Weekday count', () => {
+        test('range_count', () => {
+            weekday.range_count(new Date(2017,11,1), new Date(2017,11,31));
         });
     });
     describe('Weekday format', () => {
