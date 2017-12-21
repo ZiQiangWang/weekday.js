@@ -157,6 +157,23 @@ describe('Test case of weekday tools', () => {
                 expect(weekday.range_count(new Date(2017,11,23), new Date(2017,11,2))).toEqual(15);
             });
         });
+        describe('2.count', () => {
+            test('a.Date input', () => {
+                expect(weekday.count(new Date(2017,11,1))).toEqual(16);
+            });
+            test('b.Two date input', () => {
+                expect(weekday.count(new Date(2017,11,2), new Date(2017,11,23))).toEqual(15);
+            });
+            test('c.Number input', () => {
+                expect(weekday.count(10)).toEqual(7);
+            });
+            test('d.Number minus input', () => {
+                expect(weekday.count(-10)).toEqual(9);
+            });
+            test('e.Number date input', () => {
+                expect(weekday.count(10, new Date(2017,11,1))).toEqual(7);
+            });
+        });
     });
     describe('Weekday format', () => {
         test('format default', () => {

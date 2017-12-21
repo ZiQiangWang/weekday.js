@@ -26,7 +26,7 @@
      * @return   {Array}           日期列表
      */
      function range(start, end, format) {
-        if (!(start instanceof Date) || !(end instanceof Date)) {
+        if (!isDate(start) || !isDate(end)) {
             throw new Error('参数start与end类型必须为date');
         }
 
@@ -64,10 +64,10 @@
      */
      function within(days, format, origin) {
 
-        if (origin !== undefined && !(origin instanceof Date)) {
+        if (origin !== undefined && !isDate(origin)) {
             throw new Error('参数origin类型必须为date');
         }
-        if (format instanceof Date) {
+        if (isDate(format)) {
             origin = format;
             format = undefined;
         }
@@ -94,11 +94,11 @@
      */
      function recent(days, format, origin) {
 
-        if (origin !== undefined && !(origin instanceof Date)) {
+        if (origin !== undefined && !isDate(origin)) {
             throw new Error('参数origin类型必须为date');
         }
 
-        if (format instanceof Date) {
+        if (isDate(format)) {
             origin = format;
             format = undefined;
         }
@@ -126,10 +126,46 @@
         return format_weekdays(weekday_list, format);
     }
 
+    /**
+     * 统计一个时间段内的工作日的数量
+     * 一共有四种输入方式：
+     * 1、只有一个Date输入，返回当前时间与该日期之间的工作日数目
+     * 2、两个Date输入，返回两个日期之间的工作日数目
+     * 3、只有一个Number输入，返回当前时间为起点，n天内的工作日数目，n为正数，则是未来n天，n为负数，则是过去n天
+     * 4、第一个为Number第二个为Date，返回以该日期为起点，n天内的工作日数目
+     * @Author   wangziqiang
+     * @DateTime 2017-12-21
+     * @param    {[Date, Number]}       start   开始时间或者多少天以内
+     * @param    {Date}                 end     结束时间或者作为天数范围的原点
+     * @return   {Number}
+     */
     function count(start, end) {
-        if (isDate(start)) {
 
+        if (end !== undefined && !isDate(end)) {
+            throw new Error('count 函数第二个参数应为Date类型');
         }
+        var startDate, endDate;
+        if (isDate(start)) {
+            var startDate = start;
+            if (end === undefined) {
+                endDate = new Date();
+            } else if (isDate(end)){
+                endDate = end;
+            }
+        } else if (isNum(start)) {
+            if (end === undefined) {
+                startDate = new Date();
+                endDate = new Date();
+            } else if (isDate(end)){
+                startDate = end;
+                endDate = new Date(end);
+            }
+            endDate.setDate(endDate.getDate() + start);
+        } else {
+            throw new Error('count 函数的第一个参数为Date或Number');
+        }
+
+        return range_count(startDate, endDate);
     }
 
     /**
@@ -221,6 +257,7 @@
         in: within,
         recent: recent,
         range_count: range_count,
+        count: count,
         format: formatDate
     };
 })();
