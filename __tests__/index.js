@@ -140,8 +140,22 @@ describe('Test case of weekday tools', () => {
         });
     });
     describe('Weekday count', () => {
-        test('range_count', () => {
-            weekday.range_count(new Date(2017,11,1), new Date(2017,11,31));
+        describe('1.range_count', () => {
+            test('a.same day', () => {
+                expect(weekday.range_count(new Date(2017,11,1), new Date(2017,11,1))).toEqual(1);
+            });
+            test('b.same sunday', () => {
+                expect(weekday.range_count(new Date(2017,11,2), new Date(2017,11,2))).toEqual(0);
+            });
+            test('c.continuous weekend', () => {
+                expect(weekday.range_count(new Date(2017,11,2), new Date(2017,11,3))).toEqual(0);
+            });
+            test('d.serveral weeks', () => {
+                expect(weekday.range_count(new Date(2017,11,2), new Date(2017,11,23))).toEqual(15);
+            });
+            test('d.reverse date', () => {
+                expect(weekday.range_count(new Date(2017,11,23), new Date(2017,11,2))).toEqual(15);
+            });
         });
     });
     describe('Weekday format', () => {

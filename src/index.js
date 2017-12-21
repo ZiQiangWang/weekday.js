@@ -9,7 +9,7 @@
      * @return   {Boolean}         判断结果
      */
      function check(date) {
-        if (!(date instanceof Date)) {
+        if (!isDate(date)) {
             throw new Error('输入类型必须为date');
         }
         var week = date.getDay();
@@ -127,9 +127,9 @@
     }
 
     function count(start, end) {
-        // if (isDate(start)) {
-        //
-        // }
+        if (isDate(start)) {
+
+        }
     }
 
     /**
@@ -141,9 +141,9 @@
      * @return   {Number}        工作日个数
      */
      function range_count(start, end) {
-        // if (!isDate(start) || !isDate(end)) {
-        //     throw new Error('range_count参数必须为Date类型');
-        // }
+        if (!isDate(start) || !isDate(end)) {
+            throw new Error('range_count参数必须为Date类型');
+        }
 
         if (start > end) {
             var tmp = start;
@@ -152,7 +152,14 @@
         }
 
         var days = 0;
-        days = start.getDay() + 6 - end.getDay();
+        var startWeek = start.getDay();
+        var startOffset = startWeek === 0 ? 0 : startWeek - 1;
+        start.setDate(start.getDate() - startWeek);
+
+        var endWeek = end.getDay();
+        var endOffset = (endWeek === 0 || endWeek === 6) ? 0 : 5 - endWeek;
+        endWeek !== 0 && end.setDate(end.getDate() + (7 - endWeek));
+        return Math.floor((end - start) / (1000 * 60 * 60 * 24 * 7) + 0.5) * 5 - startOffset - endOffset;
 
     }
     /**
@@ -199,9 +206,14 @@
         return format;
     }
 
-     function isDate(date) {
+    function isDate(date) {
         return date instanceof Date;
     }
+
+    function isNum(num) {
+        return typeof num === 'number';
+    }
+
 
     module.exports = {
         check: check,
