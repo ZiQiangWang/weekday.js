@@ -1,5 +1,6 @@
 (function() {
-    weekday = {};
+    'use strict';
+    var weekday = {};
 
     /**
      * 判断是否为工作日
@@ -16,22 +17,45 @@
         return  week > 0 && week < 6;
     }
 
+    function handle_params(start, end, format) {
+
+    }
     /**
-     * 获取一个时间范围内的工作日列表
+      * 最近的n个工作日列表，有以下几种解析参数方式
+      * 1、一个参数为Number，最近n天内的工作日列表
+      * 2、一个Date，一个Number，以date为原点n天内的工作日列表
+      * 3、一个Number，一个String，参考1，返回格式化后的工作日列表
+      * 4、一个Date，一个Number，一个String，参考2，返回格式化后的工作日列表
      * @Author   wangziqiang
      * @DateTime 2017-12-18
-     * @param    {Date}    start  开始时间
-     * @param    {Date}    end    结束时间
+     * @param    {[Date,Number]}    start  开始时间
+     * @param    {[Date,String]}    end    结束时间
      * @param    {String}  format 返回的日期格式
      * @return   {Array}           日期列表
      */
      function range(start, end, format) {
-        if (!isDate(start) || !isDate(end)) {
-            throw new Error('参数start与end类型必须为date');
-        }
+         var args = arguments.length;
+         var oneDay =  1000 * 60 * 60 * 24;
 
-        if (format !== undefined && typeof format !== 'string') {
-            throw new Error('参数format类型必须为string');
+         var now = new Date();
+         var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+         if (args === 1 || (args === 2 && isString(end))) {
+             format = end
+             end = today;
+             if (isDate(start)) {
+
+             } else if(isNum(start)) {
+                 start = new Date(today.getTime() + oneDay * start);
+             }
+
+         } else if ((args === 2 && isDate(start)) || (args === 3 && isString(format))){
+             if (isDate(end)) {
+
+             } else if(isNum(end)) {
+                 end = new Date(start.getTime() + oneDay * end);
+             }
+        } else {
+            throw new Error('range参数类型错误');
         }
 
         if (start - end > 0) {
@@ -39,8 +63,6 @@
             start = end;
             end = tmp;
         }
-
-        var oneDay =  1000 * 60 * 60 * 24;
 
         var weekday_list = [];
         while (start <= end) {
@@ -54,53 +76,46 @@
     }
 
     /**
-     * 获取一定天数以内的工作日列表
+     * 最近的n个工作日列表，有以下几种解析参数方式
+     * 1、一个参数为Number，以今天为原点，最近n个工作日列表
+     * 2、一个Date，一个Number，以date为原点n个工作日列表
+     * 3、一个Number，一个String，参考1，返回格式化后的工作日列表
+     * 4、一个Date，一个Number，一个String，参考2，返回格式化后的工作日列表
      * @Author   wangziqiang
      * @DateTime 2017-12-18
-     * @param    {Number}    days   天数，可以为正数或负数
-     * @param    {String}    format 输出的日期格式
-     * @param    {Date}      origin 起始日期
+     * @param    {[Number,Date]}    days   天数，可以为正数或负数
+     * @param    {[Number,String]}  origin   输出的日期格式
+     * @param    {String}           format 起始日期
      * @return   {Array}            返回的日期列表
      */
-     function within(days, format, origin) {
+     function recent(origin, days, format) {
+        var args = arguments.length;
+        var now = new Date();
+        var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        if (args === 1) {
+            if (isNum(origin)) {
+                days = origin;
+                origin = today;
+                format = undefined;
+            } else {
+                throw new Error('recent参数格式错误, 期待的格式为Number');
+            }
+        } else if (args === 2) {
+            if (isNum(origin) && isString(days)) {
+                format = days;
+                days = origin;
+                origin = today;
+            } else if (isDate(origin) && isNum(days)) {
+                format = undefined;
+            } else {
+                throw new Error('recent参数格式错误, 期待的格式为Number,String 或 Date,Number');
+            }
+        } else if (args === 3){
+            if (isDate(origin) && isNum(days) && isString(format)) {
 
-        if (origin !== undefined && !isDate(origin)) {
-            throw new Error('参数origin类型必须为date');
-        }
-        if (isDate(format)) {
-            origin = format;
-            format = undefined;
-        }
-        if (origin === undefined) {
-            var now = new Date();
-            var offset = new Date();
-        } else {
-            var now = new Date(origin);
-            var offset = new Date(origin);
-        }
-
-        offset.setDate(offset.getDate() + days);
-        return range(offset, now, format);
-    }
-
-    /**
-     * 最近的n个工作日
-     * @Author   wangziqiang
-     * @DateTime 2017-12-18
-     * @param    {Number}    days   天数，可以为正数或负数
-     * @param    {String}    format 输出的日期格式
-     * @param    {Date}      origin 起始日期
-     * @return   {Array}            返回的日期列表
-     */
-     function recent(days, format, origin) {
-
-        if (origin !== undefined && !isDate(origin)) {
-            throw new Error('参数origin类型必须为date');
-        }
-
-        if (isDate(format)) {
-            origin = format;
-            format = undefined;
+            } else {
+                throw new Error('recent参数格式错误，期待的格式为Date,Number,String');
+            }
         }
 
         var oneDay =  1000 * 60 * 60 * 24;
@@ -108,19 +123,15 @@
             oneDay = -oneDay;
         }
         var weekday_list = [];
-        if (origin === undefined) {
-            var now = new Date();
-        } else {
-            var now = new Date(origin);
-        }
+
         var offset = Math.abs(days);
         while (weekday_list.length < offset) {
-            var week = now.getDay();
+            var week = origin.getDay();
             if (week > 0 && week < 6) {
-                days >= 0 && weekday_list.push(now);
-                days < 0 && weekday_list.unshift(now);
+                days >= 0 && weekday_list.push(origin);
+                days < 0 && weekday_list.unshift(origin);
             }
-            now = new Date(now.getTime() + oneDay);
+            origin = new Date(origin.getTime() + oneDay);
         }
 
         return format_weekdays(weekday_list, format);
@@ -250,14 +261,16 @@
         return typeof num === 'number';
     }
 
+    function isString(str) {
+        return typeof str === 'string';
+    }
+    var t = recent(5, 'yyyy-MM-dd');
+    console.log(t)
 
     module.exports = {
         check: check,
         range: range,
-        in: within,
         recent: recent,
-        range_count: range_count,
-        count: count,
-        format: formatDate
+        count: count
     };
 })();
