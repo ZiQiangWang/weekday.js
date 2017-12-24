@@ -2,7 +2,7 @@
   "name": "weekday-tools",
   "version": "0.0.1",
   "description": "Tools for weekday,get weekday list or number,check weekday",
-  "main": "index.js",
+  "main": "./dist/weekday.min.js",
   "scripts": {
     "test": "jest"
   },
