@@ -3,24 +3,6 @@
     var weekday = {};
 
     /**
-     * 判断是否为工作日
-     * @Author   wangziqiang
-     * @DateTime 2017-12-18
-     * @param    {Date}       date 待判断的日期
-     * @return   {Boolean}         判断结果
-     */
-     function check(date) {
-        if (!isDate(date)) {
-            throw new Error('输入类型必须为date');
-        }
-        var week = date.getDay();
-        return  week > 0 && week < 6;
-    }
-
-    function handle_params(start, end, format) {
-
-    }
-    /**
       * 最近的n个工作日列表，有以下几种解析参数方式
       * 1、一个参数为Number，最近n天内的工作日列表
       * 2、一个Date，一个Number，以date为原点n天内的工作日列表
@@ -264,11 +246,8 @@
     function isString(str) {
         return typeof str === 'string';
     }
-    var t = recent(5, 'yyyy-MM-dd');
-    console.log(t)
 
     module.exports = {
-        check: check,
         range: range,
         recent: recent,
         count: count

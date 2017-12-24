@@ -2,17 +2,8 @@ const weekday = require('../src/index');
 // const weekday = new Weekday();
 
 describe('Test case of weekday tools', () => {
-    describe('1.Weekday check', () => {
-        test('Check false', () => {
-            var sunday = new Date(2017,11,17);
-            expect(weekday.check(sunday)).toEqual(false);
-        });
-        test('Check true', () => {
-            var monday = new Date(2017,11,18);
-            expect(weekday.check(monday)).toEqual(true);
-        });
-    });
-    describe('2.Weekday range', () => {
+
+    describe('1.Weekday range', () => {
         describe('a. 1 argument', () => {
             test('Date', () => {
                 var start = new Date(2017,11,20);
@@ -112,7 +103,7 @@ describe('Test case of weekday tools', () => {
             });
         });
     });
-    describe("3.Weekday recent", () => {
+    describe("2.Weekday recent", () => {
         test('Recent with origin of future', () => {
             var origin = new Date(2017,11,1);
             var result = [
@@ -171,7 +162,7 @@ describe('Test case of weekday tools', () => {
             expect(weekday.recent(6,'yyyy-MM-dd')).toEqual(result);
         });
     });
-    describe('4.Weekday count', () => {
+    describe('3.Weekday count', () => {
         test('a.Date input', () => {
             expect(weekday.count(new Date(2017,11,1))).toEqual(16);
         });
