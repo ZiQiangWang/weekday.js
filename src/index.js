@@ -247,9 +247,18 @@
         return typeof str === 'string';
     }
 
-    module.exports = {
+    weekday = {
         range: range,
         recent: recent,
         count: count
     };
+    if (typeof module != 'undefined' && module.exports) {
+		module.exports = weekday;
+	} else if (typeof define == 'function' && define.amd) {
+		define(function() {
+			return weekday;
+		});
+	} else {
+		window.weekday = weekday;
+	}
 })();
