@@ -5,7 +5,8 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'weekday.min.js'
+        filename: 'weekday.min.js',
+        library: 'weekday',
     },
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
