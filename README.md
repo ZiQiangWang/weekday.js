@@ -7,12 +7,17 @@ A convenient tool for weekday, you can get weekday list and format it easily.
 
     var weekday = require('weekday-tools');  
     weekday.count(10);
+    weekday.range(10);
+    weekday.recent(10);
+
 
 ### Browser
     <script src="weekday.min.js"></script>
 
     <script>
-        weekday.count(10);  
+        weekday.count(10);
+        weekday.range(10);
+        weekday.recent(10);
     </script>
 
 ## 2.Funtions
