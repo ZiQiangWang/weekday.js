@@ -1,6 +1,6 @@
 {
   "name": "weekday-tools",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Tools for weekday,get weekday list or number,check weekday",
   "main": "./dist/weekday.min.js",
   "scripts": {

@@ -179,13 +179,13 @@ describe('Test case of weekday tools', () => {
             expect(weekday.count(new Date(2017,11,23), new Date(2017,11,2))).toEqual(15);
         });
         test('f.Number input', () => {
-            expect(weekday.count(10)).toEqual(8);
+            expect(weekday.count(10)).toEqual(9);
         });
         test('g.Number minus input', () => {
             expect(weekday.count(-10)).toEqual(7);
         });
-        test('h.Number date input', () => {
-            expect(weekday.count(10, new Date(2017,11,1))).toEqual(7);
+        test('h.Date Number input', () => {
+            expect(weekday.count(new Date(2017,11,1), 10)).toEqual(7);
         });
     });
 });

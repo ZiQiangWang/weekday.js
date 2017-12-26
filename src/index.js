@@ -134,9 +134,6 @@
      */
     function count(start, end) {
 
-        if (end !== undefined && !isDate(end)) {
-            throw new Error('count 函数第二个参数应为Date类型');
-        }
         var startDate, endDate;
         if (isDate(start)) {
             var startDate = start;
@@ -144,16 +141,16 @@
                 endDate = new Date();
             } else if (isDate(end)){
                 endDate = end;
+            } else if (isNum(end)) {
+                endDate = new Date(start);
+                endDate.setDate(endDate.getDate() + end);
             }
         } else if (isNum(start)) {
             if (end === undefined) {
                 startDate = new Date();
                 endDate = new Date();
-            } else if (isDate(end)){
-                startDate = end;
-                endDate = new Date(end);
+                endDate.setDate(endDate.getDate() + start);
             }
-            endDate.setDate(endDate.getDate() + start);
         } else {
             throw new Error('count 函数的第一个参数为Date或Number');
         }
