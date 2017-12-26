@@ -7,6 +7,8 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'weekday.min.js',
         library: 'weekday',
+        libraryTarget: 'umd',
+        umdNamedDefine: true
     },
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
