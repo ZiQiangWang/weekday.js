@@ -21,19 +21,19 @@ Three function are provided for different condition.
 ### 2.1 weekday.range
 > `range` is used to get weekdays list in a range of time. Kinds of parameters are supported. If output format is not specified, list of Date will be returned.
 
-a. Number   
+**a. Number**   
 Get weekdays in n days from today. Positive input means in future days, and negative input means in past days. Zero input means today, if today is not weekday, you will get empty list.
 
     weekday.range(10);
     weekday.range(-10);
 
-b. Date  
+**b. Date**  
 Get weekdays between today and the given date. The parameter can be given as a date in the future or past.
 
     var to = new Date(2017,11,1);
     weekday.range(to);
 
-c. Date Number && Date Date  
+**c. Date Number && Date Date**  
 You can specify the original day for calculation.
 
     var origin = new Date(2017,11,1);
@@ -41,14 +41,14 @@ You can specify the original day for calculation.
     weekday.range(origin, to);
     weekday.range(origin, 10);
 
-d. Date String && Number String
+**d. Date String && Number String**  
 You can specify format of output, such as 'yyyy-MM-dd'.
 
     var to = new Date(2017,11,1);
     weekday.range(to, 'yyyy-MM-dd');
     weekday.range(10, 'yyyy-MM-dd');
 
-e. Date Date String && Date Number String
+**e. Date Date String && Date Number String**  
 You can specify format of output and set the original date at same time.  
 
     var origin = new Date(2017,11,1);
@@ -59,19 +59,19 @@ You can specify format of output and set the original date at same time.
 ### 2.2 weekday.recent
 > `recent` is used to get weekdays list with given number. Kinds of parameters are supported. If output format is not specified, list of Date will be returned.
 
-a. Number  
+**a. Number**  
 Get n weekdays from today when the input is n.Positive input means in future days, and negative input means in past days.Zero input means today, if today is not weekday, you will get empty list.  
 
     weekday.recent(10);
     weekday.recent(-10);
 
-b. Date Number
+**b. Date Number**  
 You can specify the original day for calculation.
 
     var origin = new Date(2017,11,1);
     weekday.recent(origin,10);
 
-b. Number String && Date Number String
+**c. Number String && Date Number String**  
 You can specify the output format.
 
     var origin = new Date(2017,11,1);
@@ -81,16 +81,16 @@ You can specify the output format.
 ### 2.3 weekday.count
 > `count` is used to get number of weekday in a range of time. Kinds of parameters are supported.
 
-a. Date  
+**a. Date**  
 Get number of weekday from today to the given day.
 
     var to = new Date(2017,11,1);   
     weekday.count(to);
-b. Number  
+**b. Number**  
 Get number of weekday in the next few days or over the past few days.
 
     weekday.count(10);
-c. Date Date && Date Number
+**c. Date Date && Date Number**  
 You can specify the original day for calculation.
 
     var origin = new Date(2017,11,1);
