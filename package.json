@@ -1,6 +1,6 @@
 {
   "name": "weekday-tools",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A convenient tool for weekday, you can get weekday list and format it easily.",
   "main": "./dist/weekday.min.js",
   "scripts": {
