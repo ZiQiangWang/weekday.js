@@ -1,0 +1,26 @@
+{
+  "name": "weekday-tools",
+  "description": "A tiny(~3kb) library for weekday, you can get weekday list and format it easily.Such as get all weekdays recently, weekdays within a period of time, weekdays counts...",
+  "main": "./dist/weekday.min.js",
+  "authors": [
+    "ZiQiangWang"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "weekday",
+    "tools",
+    "tiny",
+    "range",
+    "recent",
+    "format",
+    "count"
+  ],
+  "homepage": "https://github.com/ZiQiangWang/weekday-tools",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
