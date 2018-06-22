@@ -1,5 +1,8 @@
-export const FORMAT_DEFAULT = 'YYYY-MM-DDTHH:mm:ssZ'
-
 // regex
 export const REGEX_PARSE = /^(\d{4})-?(\d{1,2})-?(\d{0,2})(.*?(\d{1,2}):(\d{1,2}):(\d{1,2}))?.?(\d{1,3})?$/
-export const REGEX_FORMAT = /\[.*?\]|Y{2,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g
+
+// 一天的时间
+export const ONE_DAY = 1000 * 60 * 60 * 24;
+
+// 一周的时间
+export const ONE_WEEK = ONE_DAY * 7;

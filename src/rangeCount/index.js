@@ -1,4 +1,6 @@
 import instance from '../utils/instance'
+import { ONE_WEEK } from '../constant';
+
 /**
  * @name rangeCount
  * @summary Get weekday count between two dates
@@ -38,5 +40,5 @@ export default function rangeCount (start, end) {
   let endWeek = end.getDay()
   let endOffset = (endWeek === 0 || endWeek === 6) ? 0 : 5 - endWeek
   endWeek !== 0 && end.setDate(end.getDate() + (7 - endWeek))
-  return Math.floor((end - start) / (1000 * 60 * 60 * 24 * 7) + 0.5) * 5 - startOffset - endOffset
+  return Math.floor((end - start) / ONE_WEEK + 0.5) * 5 - startOffset - endOffset
 }
