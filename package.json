@@ -1,11 +1,11 @@
 {
-  "name": "weekday-tools",
-  "version": "0.0.8",
+  "name": "weekday-js",
+  "version": "0.0.1",
   "description": "A tiny(~3kb) library for weekday, you can get weekday list and format it easily.Such as get all weekdays recently, weekdays within a period of time, weekdays counts...",
   "main": "./dist/weekday.min.js",
   "scripts": {
     "lint": "eslint src --fix",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
