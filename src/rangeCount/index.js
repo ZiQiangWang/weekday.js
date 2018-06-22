@@ -1,5 +1,5 @@
 import instance from '../utils/instance'
-import { ONE_WEEK } from '../constant';
+import { ONE_WEEK } from '../constant'
 
 /**
  * @name rangeCount
@@ -27,18 +27,20 @@ export default function rangeCount (start, end) {
     throw new TypeError(`(Date, Date) required, but got (${instance(start)}, ${instance(end)})`)
   }
 
-  if (start > end) {
-    let tmp = start
-    start = end
-    end = tmp
+  let startDate = new Date(start.getTime())
+  let endDate = new Date(end.getTime())
+  if (startDate > endDate) {
+    let tmp = startDate
+    startDate = endDate
+    endDate = tmp
   }
 
-  let startWeek = start.getDay()
+  let startWeek = startDate.getDay()
   let startOffset = startWeek === 0 ? 0 : startWeek - 1
-  start.setDate(start.getDate() - startWeek)
+  startDate.setDate(startDate.getDate() - startWeek)
 
-  let endWeek = end.getDay()
+  let endWeek = endDate.getDay()
   let endOffset = (endWeek === 0 || endWeek === 6) ? 0 : 5 - endWeek
-  endWeek !== 0 && end.setDate(end.getDate() + (7 - endWeek))
-  return Math.floor((end - start) / ONE_WEEK + 0.5) * 5 - startOffset - endOffset
+  endWeek !== 0 && endDate.setDate(endDate.getDate() + (7 - endWeek))
+  return Math.floor((endDate - startDate) / ONE_WEEK + 0.5) * 5 - startOffset - endOffset
 }
