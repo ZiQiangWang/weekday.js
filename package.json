@@ -1,5 +1,5 @@
 {
-  "name": "weekday-js",
+  "name": "weekday.js",
   "version": "0.0.1",
   "description": "A tiny(~3kb) library for weekday, you can get weekday list and format it easily.Such as get all weekdays recently, weekdays within a period of time, weekdays counts...",
   "main": "./dist/weekday.min.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZiQiangWang/weekday-tools.git"
+    "url": "git+https://github.com/ZiQiangWang/weekday.js.git"
   },
   "keywords": [
     "weekday",
@@ -23,9 +23,9 @@
   "author": "ZiQiangWang",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ZiQiangWang/weekday-tools/issues"
+    "url": "https://github.com/ZiQiangWang/weekday.js/issues"
   },
-  "homepage": "https://github.com/ZiQiangWang/weekday-tools#readme",
+  "homepage": "https://github.com/ZiQiangWang/weekday.js#readme",
   "devDependencies": {
     "babel-preset-env": "^1.7.0",
     "benchmark": "^2.1.4",

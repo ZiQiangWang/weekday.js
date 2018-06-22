@@ -13,9 +13,9 @@ import { ONE_WEEK } from '../constant'
  * @returns {Number} the count between start and end
  *
  * @example
- * // For the weekday date:
- * var result = isWeekday(new Date(2018, 5, 20))
- * //=> true
+ * // How many weekdays between 2018-06-20 and 2018-06-30:
+ * var result = rangeCount(new Date(2018, 5, 20), new Date(2018, 5, 30))
+ * //=> 8
  */
 
 export default function rangeCount (start, end) {
