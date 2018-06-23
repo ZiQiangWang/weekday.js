@@ -14,8 +14,8 @@ import rangeCount from '../rangeCount/index'
  *
  * @example
  * // For the weekday date:
- * var result = fromDateCount(new Date(2018, 5, 20))
- * //=> true
+ * var result = fromDateCount(10, new Date(2018, 5, 20))
+ * //=> 8
  */
 
 export default function fromDateCount (offset, origin = new Date()) {
