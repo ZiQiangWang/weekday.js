@@ -38,4 +38,12 @@ describe('rangeWeekdays', () => {
       '2018/06/25'
     ])
   })
+
+  test('throws TypeError exception if passed error argument', () => {
+    expect(() => rangeWeekdays(new Date(2018, 5, 20))).toThrow(/2 or 3 argument required/)
+  })
+
+  test('throws TypeError exception if passed error argument', () => {
+    expect(() => rangeWeekdays(new Date(2018, 5, 20), 1, new Date())).toThrow(/\(Date, Date, String \| Undefined\) required/)
+  })
 })
