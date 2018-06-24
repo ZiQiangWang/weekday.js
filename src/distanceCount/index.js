@@ -2,7 +2,7 @@ import instance from '../utils/instance'
 import rangeCount from '../rangeCount/index'
 
 /**
- * @name fromDateCount
+ * @name distanceCount
  * @summary Get weekday count from original date
  *
  * @description
@@ -14,11 +14,11 @@ import rangeCount from '../rangeCount/index'
  *
  * @example
  * // For the weekday date:
- * var result = fromDateCount(10, new Date(2018, 5, 20))
+ * var result = distanceCount(10, new Date(2018, 5, 20))
  * //=> 8
  */
 
-export default function fromDateCount (offset, origin = new Date()) {
+export default function distanceCount (offset, origin = new Date()) {
   if (arguments.length > 2) {
     throw new TypeError('2 argument required, but only ' + arguments.length + ' present')
   }
