@@ -25,6 +25,10 @@ describe('distanceWeekdays', () => {
     ])
   })
 
+  test('offset is zero', function () {
+    expect(distanceWeekdays(0, new Date(2018, 5, 10))).toEqual([])
+  })
+
   test('use default date', () => {
     expect(distanceWeekdays(5).length).toBeGreaterThan(0)
   })
