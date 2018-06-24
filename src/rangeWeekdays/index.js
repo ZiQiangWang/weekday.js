@@ -41,15 +41,15 @@ export default function rangeWeekdays (start, end, fmt) {
     endDate = tmp
   }
 
-  const weekday_list = []
+  const weekdayList = []
   while (startDate <= endDate) {
     const week = startDate.getDay()
     if (week > 0 && week < 6) {
       const date = fmt ? format(startDate, fmt) : startDate
-      weekday_list.push(date)
+      weekdayList.push(date)
     }
     startDate = new Date(startDate.getTime() + ONE_DAY)
   }
 
-  return weekday_list
+  return weekdayList
 }

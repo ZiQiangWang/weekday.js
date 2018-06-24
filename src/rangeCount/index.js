@@ -1,6 +1,6 @@
 import instance from '../utils/instance'
 import { ONE_WEEK } from '../constant'
-
+import { isDate } from '../utils/type'
 /**
  * @name rangeCount
  * @summary Get weekday count between two dates
@@ -23,7 +23,7 @@ export default function rangeCount (start, end) {
     throw new TypeError('2 argument required, but only ' + arguments.length + ' present')
   }
 
-  if (!(start instanceof Date && end instanceof Date)) {
+  if (!(isDate(start) && isDate(end))) {
     throw new TypeError(`(Date, Date) required, but got (${instance(start)}, ${instance(end)})`)
   }
 
