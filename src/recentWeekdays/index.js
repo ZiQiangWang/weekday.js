@@ -6,18 +6,23 @@ import format from '../format'
 
 /**
  * @name recentWeekdays
- * @summary Does the given date fall on a weekday?
+ * @summary Get recent weekday list from the given date
  *
  * @description
- * Does the given date fall on a weekday?
- *
- * @param {Date} date - the date to check
- * @returns {Boolean} the date is weekday
+ * Get recent weekday list from the given date
+ * @param {Number} days - weekday count
+ * @param {Date} origin - the original date, default today
+ * @param {String} fmt - result format
+ * @returns {Array} recent weekday list
  *
  * @example
  * // For the weekday date:
- * var result = recentWeekdays(new Date(2018, 5, 20))
- * //=> true
+ * var result = recentWeekdays(3, new Date(2018, 5, 20))
+ * //=> [
+ *        new Date(2018, 5, 20),
+          new Date(2018, 5, 21),
+          new Date(2018, 5, 22),
+        ]
  */
 export default function recentWeekdays (days, origin, fmt) {
   if (arguments.length > 3) {
