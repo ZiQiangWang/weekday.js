@@ -1,7 +1,7 @@
 {
-  "name": "weekday.js",
+  "name": "weekdayjs",
   "version": "0.0.1",
-  "description": "A tiny(~4kb) library for weekday, you can get weekday list and format it easily.Such as get all weekdays recently, weekdays within a period of time, weekdays counts...",
+  "description": "A library for weekday, you can get weekday list and format it easily.Such as get all weekdays recently, weekdays within a period of time, weekdays counts...",
   "main": "./lib/weekdayjs.min.js",
   "scripts": {
     "lint": "eslint src --fix",
