@@ -1,6 +1,6 @@
 # weekday.js
-A convenient tool for weekday, you can get weekday list and format it easily.
-# weekdayjs
+A tiny library for weekday, you can get weekday list and format it easily.Such as get all weekdays recently, weekdays within a period of time, weekdays counts...
+
 [![NPM version][npm-badge]][npm-url]
 [![Build Status][travis-badge]][travis-url]
 [![NPM downloads][npm-downloads]][npm-url]
@@ -18,7 +18,6 @@ A convenient tool for weekday, you can get weekday list and format it easily.
 [coveralls-url]: https://coveralls.io/github/ZiQiangWang/weekdayjs
 
 <!-- [![NPM version](https://img.shields.io/npm/v/weekdayjs.svg?style=flat)](https://www.npmjs.com/package/weekdayjs) [![NPM monthly downloads](https://img.shields.io/npm/dm/weekdayjs.svg?style=flat)](https://npmjs.org/package/weekdayjs) -->
-Cache data based on localstorage in browser, expire property is provided.
 
 ## Install
 
@@ -100,7 +99,7 @@ rangeWeekdays(new Date(2018, 5, 20), new Date(2018, 5, 25))
 
 ### [recentWeekdays](src/recentWeekdays/index.js)
 
-Get recent weekday list from the given date
+Get a certain amount of weekdays from given date.
 
 **Params**
 
@@ -122,7 +121,7 @@ recentWeekdays(3, new Date(2018, 5, 20))
 
 ### [distanceCount](src/distanceCount/index.js)
 
-Get weekday count from original date.
+Get the number of weekday in the range of n days from given date.
 
 **Params**
 
@@ -139,7 +138,7 @@ distanceCount(10, new Date(2018, 5, 20))
 
 ### [distanceWeekdays](src/distanceWeekdays/index.js)
 
-Get weekday list from original date.
+Get the weekday list in the range of n days from given date.
 
 **Params**
 

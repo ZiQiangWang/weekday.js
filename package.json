@@ -1,6 +1,6 @@
 {
   "name": "weekdayjs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A library for weekday, you can get weekday list and format it easily.Such as get all weekdays recently, weekdays within a period of time, weekdays counts...",
   "main": "./lib/weekdayjs.min.js",
   "scripts": {
