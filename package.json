@@ -1,11 +1,11 @@
 {
   "name": "weekdayjs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A library for weekday, you can get weekday list and format it easily.Such as get all weekdays recently, weekdays within a period of time, weekdays counts...",
   "main": "./lib/weekdayjs.min.js",
   "scripts": {
     "lint": "eslint src --fix",
-    "test": "jest --coverage",
+    "test": "npm run lint && jest --coverage",
     "build": "rimraf lib && babel src --out-dir lib --ignore 'src/**/test.js','src/index.js' && rollup -c",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },

@@ -8,7 +8,7 @@ import { isDate } from '../utils/type'
  * @description
  * Get weekday count between two dates
  *
- * @param {Date} start - the end date
+ * @param {Date} start - the start date
  * @param {Date} end - the end date
  * @returns {Number} the count between start and end
  *

@@ -3,10 +3,10 @@ import instance from '../utils/instance'
 import { isDefaultDate, isDefaultString, isNumber } from '../utils/type'
 /**
  * @name distanceWeekdays
- * @summary Get weekdays count from original date
+ * @summary Get weekday list from original date
  *
  * @description
- * Get weekdays count from original date
+ * Get weekday list from original date
  *
  * @param {Date} offset - the distance
  * @param {Date} origin - the origin date

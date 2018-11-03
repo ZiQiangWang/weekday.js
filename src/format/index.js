@@ -7,14 +7,15 @@ import { REGEX_FORMAT } from '../constant'
  * @description
  * Format date to given mask
  *
- * @param {Date} date - the date to check
- * @param {String} mask - the date to check
+ * @param {Date} date - the date to format
+ * @param {String} mask - format mask
+ * @param {String} utc - use utc or not
  * @returns {String} formated date
  *
  * @example
  * // For the weekday date:
- * var result = isWeekday(new Date(2018, 5, 20))
- * //=> true
+ * var result = format(new Date(2018, 5, 20), 'yyyy/mm/dd')
+ * //=> 2018/06/20
  */
 export default function format (date, mask, utc) {
   const _ = utc ? 'getUTC' : 'get'
