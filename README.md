@@ -11,10 +11,10 @@ A convenient tool for weekday, you can get weekday list and format it easily.
 [npm-badge]: https://img.shields.io/npm/v/weekdayjs.svg
 [npm-url]: https://www.npmjs.com/package/weekdayjs
 [npm-downloads]: https://img.shields.io/npm/dm/weekdayjs.svg
-[travis-badge]: https://www.travis-ci.org/ZiQiangWang/weekdayjs.svg?branch=master
-[travis-url]: https://www.travis-ci.org/ZiQiangWang/weekdayjs
+[travis-badge]: https://www.travis-ci.org/ZiQiangWang/weekday.js.svg?branch=master
+[travis-url]: https://www.travis-ci.org/ZiQiangWang/weekday.js
 [unpkg-url]: https://unpkg.com/weekdayjs/lib/weekdayjs.min.js
-[coveralls-badge]: https://coveralls.io/repos/ZiQiangWang/weekdayjs/badge.svg?branch=master
+[coveralls-badge]: https://coveralls.io/repos/ZiQiangWang/weekday.js/badge.svg?branch=master
 [coveralls-url]: https://coveralls.io/github/ZiQiangWang/weekdayjs
 
 <!-- [![NPM version](https://img.shields.io/npm/v/weekdayjs.svg?style=flat)](https://www.npmjs.com/package/weekdayjs) [![NPM monthly downloads](https://img.shields.io/npm/dm/weekdayjs.svg?style=flat)](https://npmjs.org/package/weekdayjs) -->
@@ -54,7 +54,7 @@ Check if the given date fall on a weekday.
 **Example**
 
 ```js
-isWeekday(new Date(2018, 5, 20))   
+isWeekday(new Date(2018, 5, 20))
 // => true
 ```
 
@@ -71,7 +71,7 @@ Get weekday count between two dates.
 **Example**
 
 ```js
-rangeCount(new Date(2018, 5, 20), new Date(2018, 5, 30))     
+rangeCount(new Date(2018, 5, 20), new Date(2018, 5, 30))
 // => 8
 ```
 
